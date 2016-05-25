@@ -13,10 +13,13 @@ class TestClient(copycatClient: CopycatClient) {
 
   def close(): Unit = copycatClient.close().join()
 
-  def getBlock: Future[Block] = {
-    val future = copycatClient.submit(GetBlock())
-    FutureConverters.toScala(future)
-  }
+  def getBlock: Future[Block] =
+    FutureConverters.toScala(copycatClient.submit(GetBlock()))
+
+
+  def ping: Future[Pong] =
+    FutureConverters.toScala(copycatClient.submit(Ping()))
+
 }
 
 

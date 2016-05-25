@@ -4,7 +4,7 @@ import io.mediachain.copycat.TestServer
 import org.slf4j.LoggerFactory
 
 object RunServer {
-  val logger = LoggerFactory.getLogger(RunServer.getClass)
+  private val logger = LoggerFactory.getLogger(RunServer.getClass)
 
   def main(args: Array[String]): Unit = {
     if (args.length != 2) {

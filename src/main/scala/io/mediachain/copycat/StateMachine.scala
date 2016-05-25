@@ -6,11 +6,18 @@ import org.slf4j.LoggerFactory
 
 import scala.util.Random
 
+
+
+// simple query that succeeds, to verify that the connection has been established
+case class Pong()
+case class Ping() extends Query[Pong]
+
+
 case class Entry(contents: Array[Byte])
 case class Block(entries: Array[Entry])
 
+// Failing query
 case class GetBlock() extends Query[Block]
-
 
 class TestStateMachine extends StateMachine {
   private val logger = LoggerFactory.getLogger(classOf[TestStateMachine])
@@ -29,6 +36,14 @@ class TestStateMachine extends StateMachine {
   def getBlock(commit: Commit[GetBlock]) : Block = {
     try {
       constantBlock
+    } finally {
+      commit.release()
+    }
+  }
+
+  def ping(commit: Commit[Ping]): Pong = {
+    try {
+      Pong()
     } finally {
       commit.release()
     }

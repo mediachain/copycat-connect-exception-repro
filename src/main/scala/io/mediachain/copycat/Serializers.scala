@@ -6,7 +6,9 @@ object Serializers {
   val klasses = List(
     classOf[GetBlock],
     classOf[Block],
-    classOf[Entry]
+    classOf[Entry],
+    classOf[Ping],
+    classOf[Pong]
   )
   def register(serializer: Serializer) {
     klasses.foreach(serializer.register(_))
