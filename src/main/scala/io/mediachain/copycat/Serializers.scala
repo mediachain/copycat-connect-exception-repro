@@ -1,3 +1,5 @@
+package io.mediachain.copycat
+
 import io.atomix.catalyst.serializer.Serializer
 
 object Serializers {

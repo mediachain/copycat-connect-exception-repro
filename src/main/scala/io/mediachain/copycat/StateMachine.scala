@@ -1,5 +1,7 @@
-import io.atomix.copycat.{Command, Query}
-import io.atomix.copycat.server.{Commit, Snapshottable, StateMachine}
+package io.mediachain.copycat
+
+import io.atomix.copycat.Query
+import io.atomix.copycat.server.{Commit, StateMachine}
 import org.slf4j.LoggerFactory
 
 import scala.util.Random

@@ -1,3 +1,5 @@
+package io.mediachain.copycat
+
 import java.io.File
 import java.util.function.Supplier
 
